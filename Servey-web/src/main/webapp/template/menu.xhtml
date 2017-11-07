@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<f:view locale="tr_TR">
+    <h:body>
+        <h:form id="menuForm">
+            <!-- BEGIN SIDEBAR NAV -->
+            <aside class="rs-sidebar">
+
+                <!-- Sidebar menu -->
+                <ul class="rs-sidebar-nav default-sidebar-nav">
+                    <li class="rs-user-sidebar">
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-shop avatar"/>
+                            <strong>Birim:</strong> Polatlı / 99000081
+                            <span class="subname text-uppercase m-t">Ağustos 2017</span>
+                            <span class="subname text-uppercase m-t">Z-Admin Muhasebe</span>
+                        </a>
+                        <ul>
+                            <li><a href="javascript:void(0);">Dönem Değiştir</a></li>
+                            <li><a href="javascript:void(0);">Rol Değiştir</a></li>
+                            <li><a href="javascript:void(0);">Güvenli Çıkış</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-block-divider"/>
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-gauge rs-icon-menu"/>YBS
+                        </a>
+                        <ul>
+                            <li><a href="#">İnternet</a></li>
+                            <li><a href="#">Kurum İçi</a></li>
+                        </ul>
+                    </li><!-- .ybs-menu -->
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-wallet rs-icon-menu"/>Bütçe
+                        </a>
+                        <ul>
+                            <li><a href="#"><span class="label bg-darken text-success">B-01</span>Bütçe Tertibi (Gelir)</a>
+                            </li>
+                            <li><a href="#"><span class="label bg-darken text-success">B-02</span>Bütçe Tertibi (Gider)</a>
+                            </li>
+                            <li><a href="#"><span
+                                    class="label bg-darken text-success">B-03</span>Gelir Bütçesi Hazırlama</a></li>
+                            <li><a href="#"><span
+                                    class="label bg-darken text-success">B-04</span>Gider Bütçesi Hazırlama</a></li>
+                        </ul>
+                    </li><!-- .butme-menu -->
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-drop rs-icon-menu"/>Harcama
+                        </a>
+                        <ul>
+                            <li><a href="#"><span class="label bg-darken text-success">H-01</span>Abonelik Girişi</a>
+                            </li>
+                            <li><a href="#"><span class="label bg-darken text-success">H-02</span>Abonelik Ödeme</a>
+                            </li>
+                            <li><a href="#"><span
+                                    class="label bg-darken text-success">H-03</span>Onaylı Abonelik Ödemeleri</a></li>
+                            <li><a href="#"><span class="label bg-darken text-success">H-04</span>İş Avansı Sorgula</a>
+                            </li>
+                        </ul>
+                    </li><!-- .harcama-menu -->
+
+                    <li class="active selected">
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-aircraft rs-icon-menu"/>Taşınır
+                        </a>
+                        <ul>
+                            <li><a href="#"><span class="label bg-darken text-success">T-01</span>Raporlar</a></li>
+                            <li class="active selected"><a href="/page/tasinir/tanimlamalar/ambarTanimlama.xhtml"><span
+                                    class="label bg-darken text-success">T-02</span>Ambar Tanımlama</a></li>
+                            <li><a href="/page/tasinir/tanimlamalar/markaTanimlama.xhtml"><span
+                                    class="label bg-darken text-success">T-03</span>Marka Tanımlama</a></li>
+                            <li><a href="/page/tasinir/tanimlamalar/urunKatiTanimalama.xhtml"><span
+                                    class="label bg-darken text-success">T-04</span>Ürün Tanımlama</a></li>
+                        </ul>
+                    </li><!-- .tasinir-menu -->
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-users rs-icon-menu"/>Personel
+                        </a>
+                        <ul>
+                            <li><a href="#"><span class="label bg-darken text-success">P-01</span>Personel Listesi</a>
+                            </li>
+                            <li><a href="#"><span class="label bg-darken text-success">P-02</span>Personel Ekle</a></li>
+                        </ul>
+                    </li><!-- .personel-menu -->
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-credit rs-icon-menu"/>Gelir
+                        </a>
+                        <ul>
+                            <li><a href="#"><span
+                                    class="label bg-darken text-success">G-01</span>İşletme Gelir Kalemleri</a></li>
+                            <li><a href="#"><span class="label bg-darken text-success">G-02</span>Masraf Yeri Tanımlama</a>
+                            </li>
+                        </ul>
+                    </li><!-- .gelir-menu -->
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-calculator rs-icon-menu"/>Muhasebe
+                        </a>
+                        <ul>
+                            <li><h:commandLink action="/page/muhasebe/fis.xhtml"><span
+                                    class="label bg-darken text-success">M-01</span>Muhasebe Fiş İşlemleri</h:commandLink>
+                            </li>
+                            <li><a href="#"><span class="label bg-darken text-success">M-02</span>Tahsilat İşlemleri</a>
+                            </li>
+                        </ul>
+                    </li><!-- .gelir-menu -->
+
+                    <li class="menu-block-divider"/>
+                    <li class="menu-header">Yönetim</li>
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="gcon gcon-fingerprint rs-icon-menu"/>Yönetim
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);">Kod Tanımlama</a>
+                                <ul>
+                                    <li><a href="/page/butce/ekonomikKod.xhtml">Ekonomik Kod (Gelir)</a></li>
+                                    <li><a href="/page/butce/ekonomikKod.xhtml">Ekonomik Kod (Gider)</a></li>
+                                    <li><a href="#">Fonksiyonel Kod</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">Kullanıcı İşlemleri</a>
+                                <ul>
+                                    <li><a href="#">Rol Tanımlama</a></li>
+                                    <li><a href="#">Kullanıcı Listesi</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                </ul>
+                <!-- End sidebar menu -->
+
+            </aside><!-- /.rs-sidebar --><!-- END SIDEBAR NAV -->
+        </h:form>
+    </h:body>
+</f:view>
+</html>

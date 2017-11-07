@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="/page/template/dmis-template.xhtml">
+
+    <ui:define name="page-title">
+        Duyurular
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+
+            <p:dashboard id="board" model="#{indexBean.dashboardModel}">
+                <p:ajax event="reorder" listener="#{indexBean.handleReorder}"/>
+
+                <p:panel id="duyuru" header="Duyurular" style="width:500px">
+                    <h:outputText value="Sports Content"/>
+                </p:panel>
+
+                <p:panel id="havaDurumu" header="Hava Durumu" style="width:500px">
+                    <a href="https://www.accuweather.com/en/tr/ankara/316938/weather-forecast/316938" class="aw-widget-legal">
+                        <!--
+                        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+                        -->
+                    </a>
+                    <div id="awcc1507490907983" class="aw-widget-current"  data-locationkey="316938" data-unit="c" data-language="tr" data-useip="true" data-uid="awcc1507490907983"></div>
+                    <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+                </p:panel>
+
+                <p:panel id="test1" header="Test" style="width:500px">
+                    <h:outputText value="Test Content"/>
+                </p:panel>
+
+                <p:panel id="test2" header="Test" style="width:500px">
+                    <h:outputText value="Test Content"/>
+                </p:panel>
+
+            </p:dashboard>
+
+            <div style="clear:both"></div>
+        </h:form>
+    </ui:define>
+</ui:composition>

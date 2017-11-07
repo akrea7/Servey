@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:dmis="http://java.sun.com/jsf/composite/component">
+<h:body>
+	<h:form id="ambarDlgForm">
+		<p:dialog id="userDlgId" widgetVar="userDlg" header="Kullanıcı Tanımlama" resizable="false" closable="false" dynamic="true" onHide="PF('userDlg').content.empty()">
+			<p:panelGrid id="userDlgPanelId" >
+				<!--<p:row>-->
+					<!--<p:column>-->
+						<!--<h:inputText value="Ambar Adı:" disabled="true" readonly="true" />-->
+					<!--</p:column>-->
+					<!--<p:column>-->
+						<!--<h:inputText value="#{userManagedBean.newAmbar.adi}" />-->
+					<!--</p:column>-->
+
+				<!--</p:row>-->
+				<p:row >
+					<dmis:inputText value="#{userManagedBean.newUser.userName}"
+                                    labelId="nameLabelId"
+                                    compId="nameId"
+                                    labelText="Kullanıcı Adı"
+                                    requiredCond="true"
+                                    compImmediate="false"/>
+				</p:row>
+				<p:row>
+					<dmis:inputText value="#{userManagedBean.newUser.userSurname}"
+                                    labelId="surNameLabelId"
+                                    compId="surNameId"
+                                    labelText="Kullanıcı Soyadı"
+                                    requiredCond="true"
+                                    compImmediate="false"
+                                    />
+				</p:row>
+				<p:row>
+					<dmis:inputText value="#{userManagedBean.newUser.userCode}"
+                                    labelId="codeLabelId"
+                                    compId="codeId"
+                                    labelText="Kullanıcı Kodu"
+                                    requiredCond="true"
+                                    compImmediate="false"
+                                    />
+				</p:row>
+				<p:row>
+                    <p:column>
+                        <h:outputText id="labelId" value="Sorumlu Kullanıcı"/>
+                    </p:column>
+                    <p:column>
+                        <p:selectOneMenu value="#{userManagedBean.newAmbar.sorumluKullanici}">
+                            <f:selectItems value="#{userManagedBean.kullaniciList}" var="row"/>
+                            <f:selectItems itemLabel="#{row.kullaniciAdi}" itemValue="#{row.id}"  />
+                        </p:selectOneMenu>
+                    </p:column>
+                </p:row>
+				<!--<p:row>-->
+					<!--<p:column>-->
+						<!--<h:inputText value="Ambar Kodu:" readonly="true" />-->
+					<!--</p:column>-->
+					<!--<p:column>-->
+						<!--<h:inputText value="#{userManagedBean.newAmbar.kodu}" />-->
+					<!--</p:column>-->
+
+				<!--</p:row>-->
+			</p:panelGrid>
+			<p:commandButton value="İptal"
+                             style="float: right;"
+                             onclick="PF('ambarDlg').hide();" update="ambarDlgForm ambarDlgForm:ambarDlgPanelId"/>
+			<p:commandButton value="Kaydet"
+                             action="#{userManagedBean.kaydet}"
+                             oncomplete="if(!args.validationFailed) PF('ambarDlg').hide();"
+                             update=":ambarForm:button :ambarForm:ambar :ambarDlgForm:ambarDlgPanelId"
+                             style="float: right;" />
+
+
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

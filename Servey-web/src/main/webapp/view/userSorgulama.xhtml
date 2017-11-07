@@ -1,0 +1,94 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html" xmlns:dmis="http://java.sun.com/jsf/composite/component"
+				xmlns:ui="http://java.sun.com/jsf/facelets" template="/page/template/dmis-template.xhtml" xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="content">
+	<h:form id="ambarForm">
+
+		<p:panel id="button">
+			<p:row>
+				<p:column>
+					<p:commandButton id="ekleButtonId" action="#{userManagedBean.addUser}"
+						value="Ekle" oncomplete="PF('ambarDlg').show();" update="ambarDlgForm:ambarDlgId ambarDlgForm:ambarDlgPanelId" />
+				</p:column>
+				<p:column>
+					<p:commandButton id="duzenleButtonId"
+						disabled="#{}"
+						action="#{userManagedBean.duzenle}" value="Düzenle"
+						oncomplete="PF('ambarDlg').show();" update="ambarDlgForm:ambarDlgId" />
+				</p:column>
+				<p:column>
+					<p:commandButton id="silButtonId"
+						disabled="#{userManagedBean.selectedAmbar==null}"
+						action="#{userManagedBean.sil}" value="Pasif Yap"
+						update="ambarForm:dataTableId"/>
+				</p:column>
+			</p:row>
+		</p:panel>
+
+
+
+		<p:panelGrid id="dataTableId" layout="grid" columns="2" columnClasses="ui-grid-col-9, ui-grid-col-3">
+			<p:panel>
+				<p:dataTable id="ambar" value="#{userManagedBean.lazyDataModel}" var="ambar" lazy="true"
+							 rowKey="#{ambar.id}" emptyMessage="null pointer"
+							 selectionMode="single" selection="#{userManagedBean.selectedAmbar}"
+							 resizableColumns="true" rowsPerPageTemplate="5,10,15" paginator="true" rows="10" paginatorPosition="bottom"
+							 paginatorTemplate="{RowsPerPageDropdown} {PageLinks} {CurrentPageReport}"
+							 currentPageReportTemplate="Toplam {totalRecords} kayıttan {startRecord} ile {endRecord} arası görüntüleniyor.">
+					<f:facet name="header">
+						<h:outputText value="Ambar Listesi" />
+					</f:facet>
+					<p:ajax event="rowSelect"
+							update="ambarForm:ambarDuzenleId ambarForm:button ambarForm:pasifId ambarForm:bilgiId" />
+					<p:ajax event="rowUnselect"
+							update="ambarForm:ambarDuzenleId ambarForm:pasifId ambarForm:dataTableId ambarForm:bilgiId" />
+					<p:column headerText="Ambar Adi" sortBy="#{ambar.adi}"
+							  filterBy="#{ambar.adi}" width="25%">
+						<h:outputText value="#{ambar.adi}" />
+					</p:column>
+					<p:column headerText="Ambar Kodu" sortBy="#{ambar.kodu}"
+							  filterBy="#{ambar.kodu}" width="25%">
+						<h:outputText value="#{ambar.kodu}" />
+					</p:column>
+					<p:column headerText="Aktif/Pasif" sortBy="#{ambar.durumu}"
+							  filterBy="#{ambar.durumu}" width="25%" >
+						<h:outputText value="#{ambar.durumu}" />
+					</p:column>
+					<p:column headerText="Sorumlu Kullanıcı" sortBy="#{ambar.sorumluKullanici.kisi.kisi.ad}"
+							  filterBy="#{ambar.sorumluKullanici.kisi.kisi.ad}" width="20%">
+						<h:outputText value="#{ambar.sorumluKullanici.kisi.kisi.ad}" />
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+			<p:panel id="bilgiId">
+				<f:facet name="header">
+					<h:outputText value="Ambar Bilgileri"/>
+				</f:facet>
+				<p:panelGrid>
+					<p:row >
+						<dmis:inputText value="#{userManagedBean.selectedAmbar.adi}"
+										labelId="adiLabelId"
+										compId="adiId" disableInput="true"
+										labelText="Ambar Adi"
+										requiredCond="false"
+										compImmediate="false"/>
+					</p:row>
+					<p:row>
+						<dmis:inputText value="#{userManagedBean.selectedAmbar.kodu}"
+										labelId="koduLabelId"
+										compId="kodId" disableInput="true"
+										labelText="Ambar Kodu"
+										requiredCond="false"
+										compImmediate="false"/>
+					</p:row>
+				</p:panelGrid>
+			</p:panel>
+		</p:panelGrid>
+
+	</h:form>
+		<ui:include src="../ambarEkleDlg.xhtml" />
+	</ui:define>
+
+	<ui:define name="page-title">
+		User Tanımlama
+	</ui:define>
+</ui:composition>

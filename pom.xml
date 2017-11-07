@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tr.com.yd.tabak</groupId>
+	<artifactId>Servey</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<spring.version>4.2.9.RELEASE</spring.version>
+		<hibernate.core.version>5.1.0.Final</hibernate.core.version>
+		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
+		<mysql.version>5.1.6</mysql.version>
+		<hsqldb.version>1.8.0.10</hsqldb.version>
+		<jsf.version>2.2.14</jsf.version>
+		<primefaces.version>6.0</primefaces.version>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<mysql-connector>5.1.9</mysql-connector>
+	</properties>
+
+	<modules>
+		<module>Servey-dao</module>
+		<module>Servey-services</module>
+		<module>Servey-domain</module>
+		<module>Servey-web</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
